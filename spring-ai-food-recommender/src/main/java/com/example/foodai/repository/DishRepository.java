@@ -32,4 +32,16 @@ public interface DishRepository extends JpaRepository<Dish, Long> {
         @Param("maxPrice") Double maxPrice,
         @Param("isSpicy") Boolean isSpicy
     );
+    
+    @Query("SELECT d FROM Dish d JOIN d.shop s WHERE " +
+           "(:cuisineType IS NULL OR s.cuisineType = :cuisineType) AND " +
+           "(:maxPrice IS NULL OR d.price <= :maxPrice) AND " +
+           "(:isSpicy IS NULL OR d.isSpicy = :isSpicy) AND " +
+           "(:flavorPreference IS NULL OR s.flavorTags LIKE %:flavorPreference% OR d.flavorTags LIKE %:flavorPreference%)")
+    List<Dish> findDishesWithFlavorPreference(
+        @Param("cuisineType") String cuisineType,
+        @Param("maxPrice") Double maxPrice,
+        @Param("isSpicy") Boolean isSpicy,
+        @Param("flavorPreference") String flavorPreference
+    );
 }

@@ -40,12 +40,22 @@ public class JpaFoodRetrievalService implements FoodRetrievalService {
             criteria.getMinRating()
         );
         
-        // 查询菜品
-        List<Dish> dishes = dishRepository.findDishesWithShopCriteria(
-            criteria.getCuisineType(),
-            criteria.getMaxPrice(),
-            criteria.getIsSpicy()
-        );
+        // 查询菜品 - 优先使用带口味偏好的查询
+        List<Dish> dishes;
+        if (criteria.getFlavorPreference() != null && !criteria.getFlavorPreference().isEmpty()) {
+            dishes = dishRepository.findDishesWithFlavorPreference(
+                criteria.getCuisineType(),
+                criteria.getMaxPrice(),
+                criteria.getIsSpicy(),
+                criteria.getFlavorPreference()
+            );
+        } else {
+            dishes = dishRepository.findDishesWithShopCriteria(
+                criteria.getCuisineType(),
+                criteria.getMaxPrice(),
+                criteria.getIsSpicy()
+            );
+        }
         
         // 转换为统一结果对象
         List<FoodSearchResult.ShopInfo> shopInfos = shops.stream()

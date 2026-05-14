@@ -1,80 +1,31 @@
-# Compiled and build artifacts
+```
+# Java/Maven build artifacts
+target/
 *.class
-*.o
-*.obj
-*.out
-*.dll
-*.so
-*.a
-*.pyc
-__pycache__/
-*.pyo
-*.pyd
 *.jar
 *.war
 *.ear
-*.zip
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.gz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.Z
-*.lz
-*.lzo
 
-# Dependencies
-node_modules/
-venv/
-.venv/
+# IDE specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Logs
+*.log
+
+# Environment variables
 .env
 .env.local
-.env.*
-.gradle/
-.mypy_cache/
-.pytest_cache/
-coverage/
-htmlcov/
-.target/
+*.env.*
 
-# IDE and editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
-*.log
-*.bak
-*~
+# Operating system files
 .DS_Store
 Thumbs.db
 
-# Build directories
-build/
-dist/
-target/
-out/
-bin/
-obj/
-
-# Spring Boot specific
-*.pid
-*.dump
-local.properties
-app.properties
-application-*.properties
-application-*.yml
-application-*.yaml
-
-# Original rules preserved
-*.log
+# Dependencies cache
+.m2/
+.gradle/
+```
