@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -29,9 +30,9 @@ public class FoodSearchResult {
         private String name;
         private String cuisineType;
         private String flavorTags;
-        private Double avgPrice;
+        private BigDecimal avgPrice;
         private String address;
-        private Double rating;
+        private BigDecimal rating;
         private String description;
     }
     
@@ -44,7 +45,7 @@ public class FoodSearchResult {
         private String name;
         private Long shopId;
         private String shopName;
-        private Double price;
+        private BigDecimal price;
         private String description;
         private String flavorTags;
         private Boolean isSpicy;

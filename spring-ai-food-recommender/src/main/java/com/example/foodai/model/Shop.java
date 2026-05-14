@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "shops")
 @Data
@@ -28,13 +30,13 @@ public class Shop {
     private String flavorTags;
     
     @Column(precision = 10, scale = 2)
-    private Double avgPrice;
+    private BigDecimal avgPrice;
     
     @Column(length = 500)
     private String address;
     
     @Column(precision = 3, scale = 1)
-    private Double rating;
+    private BigDecimal rating;
     
     @Column(length = 1000)
     private String description;
