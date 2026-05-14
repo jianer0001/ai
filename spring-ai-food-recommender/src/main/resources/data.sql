@@ -1,6 +1,30 @@
 -- 初始化数据脚本
 -- 创建测试用的店铺和菜品数据
 
+-- 创建 shops 表
+CREATE TABLE IF NOT EXISTS shops (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+    cuisine_type VARCHAR(100),
+    flavor_tags VARCHAR(500),
+    avg_price DECIMAL(10, 2),
+    address VARCHAR(500),
+    rating DECIMAL(3, 1),
+    description VARCHAR(1000)
+);
+
+-- 创建 dishes 表
+CREATE TABLE IF NOT EXISTS dishes (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+    shop_id BIGINT NOT NULL,
+    price DECIMAL(10, 2),
+    description VARCHAR(1000),
+    flavor_tags VARCHAR(200),
+    is_spicy BOOLEAN NOT NULL DEFAULT FALSE,
+    FOREIGN KEY (shop_id) REFERENCES shops(id)
+);
+
 -- 插入店铺数据
 INSERT INTO shops (name, cuisine_type, flavor_tags, avg_price, address, rating, description) VALUES
 ('川香阁', '川菜', '麻辣，香辣，重口味', 85.00, '北京市朝阳区建国路 88 号', 4.5, '正宗川菜馆，主打水煮鱼、麻婆豆腐等经典川菜，厨师来自四川本地。'),
