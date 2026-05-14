@@ -18,12 +18,12 @@ public class FoodRetrievalTools {
         this.retrievalService = retrievalService;
     }
     
-    @Tool(description = "根据用户偏好搜索餐厅和菜品。可用于查找特定菜系、价格范围、口味偏好的食物推荐。")
+    @Tool(description = "根据用户偏好搜索餐厅和菜品。当用户提到'辣'、'麻辣'、'香辣'等关键词时，必须设置 isSpicy=true。可用于查找特定菜系、价格范围、口味偏好的食物推荐。")
     public FoodSearchResult searchFood(
         @ToolParam(description = "菜系类型，如'川菜'、'粤菜'、'日本料理'等") String cuisineType,
         @ToolParam(description = "最高价格限制（人均消费）") Double maxPrice,
         @ToolParam(description = "最低评分要求（1-5 分）") Double minRating,
-        @ToolParam(description = "是否要辣味食物") Boolean isSpicy,
+        @ToolParam(description = "是否要辣味食物。当用户提到'辣'、'麻辣'、'香辣'、'水煮'、'火锅'等关键词时，必须设置为 true") Boolean isSpicy,
         @ToolParam(description = "口味偏好描述，如'清淡'、'重口味'、'酸甜'等") String flavorPreference,
         @ToolParam(description = "返回结果数量限制") Integer limit
     ) {
