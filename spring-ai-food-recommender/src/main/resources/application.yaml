@@ -4,9 +4,9 @@ spring:
   
   # 数据库配置（请根据实际情况修改）
   datasource:
-    url: jdbc:mysql://localhost:3306/food_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://192.168.10.215:3306/jeepay?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
-    password: your_password
+    password: HXN123!@#
     driver-class-name: com.mysql.cj.jdbc.Driver
   
   jpa:
@@ -20,10 +20,10 @@ spring:
   ai:
     openai:
       api-key: ms-5791fb33-3531-4d84-937c-1e6348b046bd
-      base-url: https://ms-ens-303d4eea-d371.api-inference.modelscope.cn/v1
+      base-url: https://ms-ens-08214f56-2b9d.api-inference.modelscope.cn/v1
       chat:
         options:
-          model: qwen-max
+          model: Qwen/Qwen3-4B
           temperature: 0.7
 
 # 服务器配置
